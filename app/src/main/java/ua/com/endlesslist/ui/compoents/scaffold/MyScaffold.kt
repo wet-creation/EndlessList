@@ -13,13 +13,15 @@ import ua.com.endlesslist.ui.theme.Colors
 fun MyScaffold(
     modifier: Modifier = Modifier,
     topAppBar: @Composable () -> Unit = {},
+    showBottomBar: Boolean = true,
     content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
         containerColor = Color.Transparent,
         topBar = topAppBar,
         bottomBar = {
-            BottomNavBar()
+            if (showBottomBar)
+                BottomNavBar()
         },
         modifier = modifier
     ) { padding ->

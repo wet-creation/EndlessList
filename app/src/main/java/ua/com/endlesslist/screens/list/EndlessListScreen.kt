@@ -35,17 +35,22 @@ import ua.com.endlesslist.ui.theme.Colors
 import ua.com.endlesslist.ui.theme.EndlessListTheme
 import ua.com.endlesslist.ui.theme.Icons
 
-const val TAG = "EndlessListScreen"
-
 @Composable
 fun EndlessListRoot(
-    viewModel: EndlessListViewModel = viewModel()
+    viewModel: EndlessListViewModel = viewModel(),
+    navigateDetail: (String) -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     EndlessListScreen(
         state = state,
-        onAction = viewModel::onAction
+        onAction = {
+            viewModel.onAction(it)
+            when(it) {
+                is EndlessListAction.NavigateDetail -> navigateDetail(it.title)
+                else -> Unit
+            }
+        }
     )
 }
 
@@ -167,7 +172,7 @@ private fun EndlessListScreen(
                             subtitle = it.subtitle,
                             image = rememberAsyncImagePainter(it.imageUrl),
                             onClick = {
-                                onAction(EndlessListAction.NavigateDetail(it.id))
+                                onAction(EndlessListAction.NavigateDetail(it.title))
                             }
                         )
                     }

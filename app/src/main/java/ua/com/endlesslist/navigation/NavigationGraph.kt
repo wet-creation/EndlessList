@@ -7,9 +7,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import kotlinx.serialization.Serializable
+import ua.com.endlesslist.screens.detail.DetailScreen
 import ua.com.endlesslist.screens.list.EndlessListRoot
-import ua.com.endlesslist.ui.compoents.scaffold.Background
 
 
 @Composable
@@ -21,11 +22,16 @@ fun NavigationRoot(
         startDestination = List,
     ) {
         composable<List> {
-            EndlessListRoot()
+            EndlessListRoot {
+                navController.navigate(Details(it))
+            }
 
         }
         composable<Details> {
-
+            val title = it.toRoute<Details>().title
+            DetailScreen(title) {
+                navController.navigateUp()
+            }
         }
 
     }
@@ -35,4 +41,4 @@ fun NavigationRoot(
 data object List
 
 @Serializable
-data class Details(val id: Int)
+data class Details(val title: String)
