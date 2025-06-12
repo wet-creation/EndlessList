@@ -3,13 +3,11 @@ package ua.com.endlesslist.screens.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.github.serpro69.kfaker.Faker
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import ua.com.endlesslist.screens.models.Item
 
 class EndlessListViewModel : ViewModel() {
@@ -33,17 +31,16 @@ class EndlessListViewModel : ViewModel() {
 
     fun onAction(action: EndlessListAction) {
         when (action) {
-            EndlessListAction.LoadNext -> viewModelScope.launch(Dispatchers.Default) {
+            EndlessListAction.LoadNext ->
                 loadNextItems()
-            }
+
 
             else -> Unit
         }
     }
 
-    private  fun loadNextItems() {
+    private fun loadNextItems() {
         val list = _state.value.items.toMutableList()
-
         (0..20).forEach {
             list.add(generateItem(list.size))
         }

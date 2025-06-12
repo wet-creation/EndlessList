@@ -21,7 +21,7 @@ object Icons {
     val notes: Painter
         @Composable
         get() = painterResource(id = R.drawable.notes)
-    val search: Painter
+    val searchButton: Painter
         @Composable
         get() = painterResource(id = R.drawable.search)
 

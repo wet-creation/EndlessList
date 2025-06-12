@@ -6,10 +6,8 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
-import ua.com.endlesslist.screens.list.EndlessListRoot
+import androidx.navigation.compose.rememberNavController
+import ua.com.endlesslist.navigation.NavigationRoot
 import ua.com.endlesslist.ui.theme.EndlessListTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,10 +15,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             EndlessListTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    EndlessListRoot()
-                }
+                NavigationRoot(
+                    navController = navController,
+                )
             }
         }
     }

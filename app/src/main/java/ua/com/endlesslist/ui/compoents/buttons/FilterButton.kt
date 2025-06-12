@@ -23,11 +23,11 @@ fun FilterButton(
 ) {
     Box(
         modifier
+            .clickable(onClick = onClick)
             .background(
                 color = if (active) Colors.Primary else Colors.Secondary,
                 shape = RoundedCornerShape(7.dp)
             )
-            .clickable(onClick = onClick)
             .padding(vertical = 10.dp, horizontal = 16.dp)
     ) {
         Text(
