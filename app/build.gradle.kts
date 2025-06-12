@@ -52,7 +52,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    implementation(libs.facker)
+    implementation(libs.faker)
     implementation(libs.coil.compose)
     implementation(libs.navigation.compose)
     implementation(libs.androidx.navigation.runtime.ktx)
