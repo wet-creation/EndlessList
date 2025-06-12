@@ -24,11 +24,9 @@ fun Background(modifier: Modifier = Modifier, content: @Composable ColumnScope.(
                 val height = size.height
                 val center = Offset(width*0.35f, height*0.17f)
 
-                // Розміри овала
                 val ovalWidth = width * 0.77f
                 val ovalHeight = height * 0.35f
 
-                // Прямокутник для овала
                 val rect = Rect(
                     left = center.x - ovalWidth / 2f,
                     top = center.y - ovalHeight / 2f,
@@ -51,7 +49,6 @@ fun Background(modifier: Modifier = Modifier, content: @Composable ColumnScope.(
                 )
                 val path2 = Path().apply {
 
-                    // Пропорційно до розмірів полотна
                     moveTo(width * 0.29f, height * 0.49f)
 
                     cubicTo(
