@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EndlessList</string>
+    <string name="subliminals">Subliminals</string>
+    <string name="favorites">Favorites</string>
+    <string name="journal">Journal</string>
+    <string name="coming_soon">Coming soon..</string>
 </resources>

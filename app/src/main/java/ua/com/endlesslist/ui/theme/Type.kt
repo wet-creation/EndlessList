@@ -2,33 +2,42 @@ package ua.com.endlesslist.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import ua.com.endlesslist.R
 
-// Set of Material typography styles to start with
 val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+    bodySmall = TextStyle(
+        fontSize = 10.sp,
+        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontWeight = FontWeight(500),
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+    bodyMedium = TextStyle(
+        fontSize = 12.sp,
+        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontWeight = FontWeight(400),
+    ),
+    bodyLarge = TextStyle(
+        fontSize = 16.sp,
+        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontWeight = FontWeight(600),
+    ),
+    labelMedium = TextStyle(
+        fontSize = 12.sp,
+        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontWeight = FontWeight(600),
+    ),
+
+    titleLarge = TextStyle(
+        fontSize = 34.sp,
+        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontWeight = FontWeight(700),
+    ),
+    titleSmall = TextStyle(
+        fontSize = 14.sp,
+        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontWeight = FontWeight(500),
     )
-    */
 )
