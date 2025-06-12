@@ -4,4 +4,13 @@
     <string name="favorites">Favorites</string>
     <string name="journal">Journal</string>
     <string name="coming_soon">Coming soon..</string>
+    <string name="back_button">Back button</string>
+    <string name="info_button">Info button</string>
+    <string name="search_button">Search button</string>
+    <string name="good_morning">Good morning!</string>
+    <string name="subtitle_text">Your daily dose of subliminals is ready</string>
+    <string name="all_together">All together</string>
+    <string name="for_women">For women</string>
+    <string name="for_men">For men</string>
+    <string name="health_n_wellness"><![CDATA[Health & Wellness]]></string>
 </resources>

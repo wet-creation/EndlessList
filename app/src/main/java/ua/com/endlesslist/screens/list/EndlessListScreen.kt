@@ -3,6 +3,7 @@ package ua.com.endlesslist.screens.list
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,11 +21,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import ua.com.endlesslist.R
 import ua.com.endlesslist.comingSoonToast
 import ua.com.endlesslist.ui.compoents.buttons.FilterButton
 import ua.com.endlesslist.ui.compoents.containers.ItemContainer
@@ -46,7 +49,7 @@ fun EndlessListRoot(
         state = state,
         onAction = {
             viewModel.onAction(it)
-            when(it) {
+            when (it) {
                 is EndlessListAction.NavigateDetail -> navigateDetail(it.title)
                 else -> Unit
             }
@@ -62,6 +65,7 @@ private fun EndlessListScreen(
 ) {
     val listState = rememberLazyListState()
     val context = LocalContext.current
+    val horizontalPadding = 17.dp
     LaunchedEffect(listState.canScrollForward) {
         if (state.items.size <= 10_000 && !listState.canScrollForward)
             onAction(EndlessListAction.LoadNext)
@@ -79,7 +83,7 @@ private fun EndlessListScreen(
                             Image(
                                 modifier = Modifier.size(30.dp),
                                 painter = Icons.infoButton,
-                                contentDescription = "",
+                                contentDescription = stringResource(R.string.info_button),
                             )
                         }
 
@@ -96,7 +100,7 @@ private fun EndlessListScreen(
                             Image(
                                 modifier = Modifier.size(30.dp),
                                 painter = Icons.searchButton,
-                                contentDescription = ""
+                                contentDescription = stringResource(R.string.search_button)
                             )
                         }
                     }
@@ -107,34 +111,37 @@ private fun EndlessListScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding)
-                    .padding(horizontal = 17.dp)
 
             ) {
-                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
+                    modifier = Modifier.padding(horizontal = horizontalPadding)
+                ) {
                     Text(
-                        "Good morning!",
+                        stringResource(R.string.good_morning),
                         color = Colors.Primary,
                         style = MaterialTheme.typography.titleLarge
                     )
                     Text(
-                        "Your daily dose of subliminals is ready",
+                        stringResource(R.string.subtitle_text),
                         color = Colors.ThirdedText,
-                        style = MaterialTheme.typography.titleMedium
+                        style = MaterialTheme.typography.titleSmall
                     )
                 }
                 LazyRow(
+                    contentPadding = PaddingValues(horizontal = horizontalPadding),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                     modifier = Modifier.padding(top = 19.dp, bottom = 22.dp)
                 ) {
                     item {
                         FilterButton(
-                            text = "All together",
+                            text = stringResource(R.string.all_together),
                             active = true
                         ) { }
                     }
                     item {
                         FilterButton(
-                            text = "For women",
+                            text = stringResource(R.string.for_women),
                             active = false
                         ) {
                             comingSoonToast(context)
@@ -143,7 +150,7 @@ private fun EndlessListScreen(
                     }
                     item {
                         FilterButton(
-                            text = "For men",
+                            text = stringResource(R.string.for_men),
                             active = false
                         ) {
                             comingSoonToast(context)
@@ -152,7 +159,7 @@ private fun EndlessListScreen(
                     }
                     item {
                         FilterButton(
-                            text = "Health & Wellness",
+                            text = stringResource(R.string.health_n_wellness),
                             active = false
                         ) {
                             comingSoonToast(context)
@@ -161,9 +168,11 @@ private fun EndlessListScreen(
 
                 }
                 LazyColumn(
-                    modifier = Modifier.padding(),
+                    modifier = Modifier.padding(horizontal = horizontalPadding),
                     state = listState,
-                    verticalArrangement = Arrangement.spacedBy(20.dp)
+                    verticalArrangement = Arrangement.spacedBy(20.dp),
+                    contentPadding = PaddingValues(bottom = 20.dp),
+
                 ) {
                     items(state.items, key = { it.id }) {
                         ItemContainer(

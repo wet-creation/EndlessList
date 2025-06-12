@@ -19,7 +19,6 @@ class EndlessListViewModel : ViewModel() {
     val state = _state
         .onStart {
             if (!hasLoadedInitialData) {
-                loadNextItems()
                 hasLoadedInitialData = true
             }
         }
@@ -50,8 +49,8 @@ class EndlessListViewModel : ViewModel() {
     }
 
     private fun generateItem(id: Int): Item {
-        val title = faker.ancient.god()
-        val subtitle = faker.ancient.primordial()
+        val title = faker.book.title()
+        val subtitle = faker.departed.quotes()
         val pictureId = (0..1000).random()
         val url = "https://picsum.photos/id/$pictureId/200"
 

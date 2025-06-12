@@ -3,9 +3,7 @@
 package ua.com.endlesslist.ui.compoents.scaffold
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBarColors
@@ -14,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import ua.com.endlesslist.ui.theme.Icons
 
 val topAppBarColors
@@ -40,15 +37,11 @@ fun TopAppBar(
         modifier = modifier,
         title = {},
         navigationIcon = {
-            Box(modifier = Modifier.padding(start = 17.dp)) {
-                startItem?.invoke()
-            }
+            startItem?.invoke()
         },
         actions = {
-            Box(modifier = Modifier.padding(end = 17.dp)) {
 
-                endItem?.invoke()
-            }
+            endItem?.invoke()
         }
     )
 }

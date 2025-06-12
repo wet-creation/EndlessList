@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,29 +32,36 @@ fun ItemContainer(
     image: Painter,
     onClick: () -> Unit
 ) {
-    Row(
+    Surface(
+        shadowElevation = 1.dp,
+        shape = RoundedCornerShape(26.dp),
+        color = Colors.White,
         modifier = modifier
-            .background(Colors.White, RoundedCornerShape(26.dp))
-            .clickable(onClick = onClick)
-            .padding(top = 19.dp, bottom = 17.dp, start = 19.dp, end = 50.dp),
-        horizontalArrangement = Arrangement.spacedBy(
-            20.dp,
-        ),
-        verticalAlignment = Alignment.CenterVertically
     ) {
-        Image(
-            image,
-            contentScale = ContentScale.FillBounds,
-            contentDescription = title,
-            modifier = Modifier.size(79.dp).clip(RoundedCornerShape(100.dp))
-        )
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(title, color = Colors.Primary, style = MaterialTheme.typography.bodyLarge)
-            Text(
-                subtitle,
-                color = Colors.SecondaryText,
-                style = MaterialTheme.typography.bodyMedium
+        Row(
+            modifier = Modifier
+                .clickable(onClick = onClick)
+                .background(Colors.White, RoundedCornerShape(26.dp))
+                .padding(top = 19.dp, bottom = 17.dp, start = 19.dp, end = 50.dp),
+            horizontalArrangement = Arrangement.spacedBy(
+                20.dp,
+            ),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                image,
+                contentScale = ContentScale.FillBounds,
+                contentDescription = title,
+                modifier = Modifier.size(79.dp).clip(RoundedCornerShape(100.dp))
             )
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(title, color = Colors.Primary, style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    subtitle,
+                    color = Colors.SecondaryText,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
         }
     }
 }
