@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import ua.com.endlesslist.ui.compoents.containers.BottomNavBar
-import ua.com.endlesslist.ui.theme.Colors
 
 
 @Composable
