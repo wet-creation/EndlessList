@@ -131,7 +131,7 @@ private fun EndlessListScreen(
                 LazyRow(
                     contentPadding = PaddingValues(horizontal = horizontalPadding),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    modifier = Modifier.padding(top = 19.dp, bottom = 22.dp)
+                    modifier = Modifier.padding(top = 19.dp, bottom = 2.dp)
                 ) {
                     item {
                         FilterButton(
@@ -171,9 +171,8 @@ private fun EndlessListScreen(
                     modifier = Modifier.padding(horizontal = horizontalPadding),
                     state = listState,
                     verticalArrangement = Arrangement.spacedBy(20.dp),
-                    contentPadding = PaddingValues(bottom = 20.dp),
-
-                ) {
+                    contentPadding = PaddingValues(top = 20.dp, bottom = 20.dp),
+                    ) {
                     items(state.items, key = { it.id }) {
                         ItemContainer(
                             modifier = Modifier.fillMaxWidth(),

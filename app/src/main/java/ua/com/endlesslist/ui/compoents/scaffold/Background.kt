@@ -1,5 +1,6 @@
 package ua.com.endlesslist.ui.compoents.scaffold
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -18,6 +19,7 @@ import ua.com.endlesslist.ui.theme.Colors
 fun Background(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
     Box(
         modifier
+            .background(Colors.White)
             .fillMaxSize()
             .drawBehind {
                 val width = size.width

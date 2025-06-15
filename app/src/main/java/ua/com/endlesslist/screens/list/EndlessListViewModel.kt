@@ -51,7 +51,7 @@ class EndlessListViewModel : ViewModel() {
     private fun generateItem(id: Int): Item {
         val title = faker.book.title()
         val subtitle = faker.departed.quotes()
-        val pictureId = (0..1000).random()
+        val pictureId = (0..500).random()
         val url = "https://picsum.photos/id/$pictureId/200"
 
         return Item(

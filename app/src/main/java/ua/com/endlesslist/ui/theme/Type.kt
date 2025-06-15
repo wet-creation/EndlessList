@@ -11,33 +11,31 @@ import ua.com.endlesslist.R
 val Typography = Typography(
     bodySmall = TextStyle(
         fontSize = 10.sp,
-        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontFamily = FontFamily(Font(R.font.gilroy_medium)),
         fontWeight = FontWeight(500),
     ),
     bodyMedium = TextStyle(
         fontSize = 12.sp,
-        fontFamily = FontFamily(Font(R.font.gilroy)),
-        fontWeight = FontWeight(400),
+        fontFamily = FontFamily(Font(R.font.gilroy_regular)),
     ),
     bodyLarge = TextStyle(
         fontSize = 16.sp,
-        fontFamily = FontFamily(Font(R.font.gilroy)),
-        fontWeight = FontWeight(600),
+        fontFamily = FontFamily(Font(R.font.gilroy_semibold)),
     ),
     labelMedium = TextStyle(
         fontSize = 12.sp,
-        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontFamily = FontFamily(Font(R.font.gilroy_semibold)),
         fontWeight = FontWeight(600),
     ),
 
     titleLarge = TextStyle(
         fontSize = 34.sp,
-        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontFamily = FontFamily(Font(R.font.gilroy_bold)),
         fontWeight = FontWeight(700),
     ),
     titleSmall = TextStyle(
         fontSize = 14.sp,
-        fontFamily = FontFamily(Font(R.font.gilroy)),
+        fontFamily = FontFamily(Font(R.font.gilroy_medium)),
         fontWeight = FontWeight(500),
     )
 )
